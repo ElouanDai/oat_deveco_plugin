@@ -15,4 +15,22 @@
     <applicationListeners>
         <listener class="com.github.elouandai.oatdevecoplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="OATCheckLog" anchor="bottom" factoryClass="com.github.elouandai.oatdevecoplugin.toolWindow.OatBottom" icon="/icons/find/find.svg"/>
+        <toolWindow id="OATCheckResult" anchor="right" factoryClass="com.github.elouandai.oatdevecoplugin.toolWindow.OatRight" icon="/icons/find/find_dark.svg"/>
+    </extensions>
+    <actions>
+        <group id="PluginOAT.OATCheck" text="OATCheck" popup="true">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+            <!-- 自研仓库 -->
+            <action id="PluginOAT.SelfAction" class="com.github.elouandai.oatdevecoplugin.actions.OatCheck" text="自研代码合规规则"
+                    description="Self repo">
+            </action>
+            <!-- 三方仓库 -->
+            <action id="PluginOAT.ThirdPartyAction" class="com.github.elouandai.oatdevecoplugin.actions.OatCheck" text="第三方代码合规规则"
+                    description="Third Party repo">
+            </action>
+        </group>
+    </actions>
 </idea-plugin>
